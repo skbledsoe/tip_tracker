@@ -1,0 +1,32 @@
+<div class="title summary">
+  <h2>Edit "<%= @workplace[:name] %>" Shift:</h2>
+</div>
+
+<div class="form">
+  <form action="/workplaces/<%= @workplace[:id] %>/shifts/<%= @shift[:id] %>" method="post">
+    <div>
+      <label for="date">Shift Date: 
+      <input type="date" name="date" id="date" value="<%= params[:date] || @shift[:date] %>">
+      </label>
+    </div>
+    <div>
+      <label for="type">Shift Type: 
+      <input type="text" name="type" id="type" value="<%= params[:type] || @shift[:type] %>"> 
+      </label>
+    </div>
+    <div>
+      <label for="tips">Tip Amount: 
+      <input type="number" name="tip_amount" id="tips" step="0.01"
+        value="<%= params[:tip_amount] || @shift[:tip_amount] %>">
+      </label>
+    </div>
+    <button class="button" type="submit">Update Shift</button>
+    <a href="/workplaces/<%= @workplace[:id] %>">Cancel</a>
+  </form>
+</div>
+
+
+
+<form class="delete" action="/workplaces/<%= @workplace[:id] %>/shifts/<%= @shift[:id] %>/delete" method="post">
+  <button type="submit" class="delete">Delete Shift</button>
+</form>

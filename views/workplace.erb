@@ -1,0 +1,61 @@
+<% content_for :nav_link do %>
+  <ul class="links">
+    <li><a href="/workplaces/<%= @workplace[:id] %>/edit">Edit Workplace</a></li>
+    <li><a href="/workplaces/<%= @workplace[:id] %>/shifts">Add Shift</a></li>
+    <li><a href="/workplaces">All Workplaces</a></li>
+  </ul>
+<% end %>
+
+<div class="title summary">
+  <h2><%= @workplace[:name] %></h2>
+
+  <p class="summary">Total tips: $<%= tip_total(@shifts) %></p>
+</div>
+
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Day of Week</th>
+        <th>Shift Type</th>
+        <th>Tips</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <% @shifts.each do |shift| %>      
+          <tr>
+            <td> <%= shift[:date] %> </td>
+            <td> <%= shift[:day_of_week] %> </td>
+            <td> <%= shift[:type] %> </td>
+            <td> $<%= format('%.2f', shift[:tip_amount]) %></td>
+            <td>
+              <a href="/workplaces/<%= @workplace[:id] %>/shifts/<%= shift[:id] %>">
+                Edit / Delete
+              </a>
+            </td>
+          </tr>
+        <% end %> 
+    </tbody>
+  </table>
+</div>
+
+<div class="page-links">
+  <% if @page > 1 %>
+    <a href="/workplaces/<%= @workplace[:id] %>?page=<%= @page - 1 %>">Previous Page</a>
+  <% end %>
+
+  <p>Page <%= @page %></p>
+
+  <% if (@workplace[:shift_count] > 10) && (@shifts.length == 10) %>
+    <a href="/workplaces/<%= @workplace[:id] %>?page=<%= @page + 1 %>">Next Page</a>
+  <% end %>
+</div>
+
+
+
+<form class="delete" action="/workplaces/<%= @workplace[:id] %>/delete" method="post">
+  <button type="submit" class="button">Delete Workplace</button>
+</form>

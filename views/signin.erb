@@ -1,0 +1,20 @@
+<div class="title summary">
+  <h2>Sign in to track your tips:</h2>
+</div>
+
+<div class="form">
+  <form action="/signin" method="post">
+    <div>
+      <label for="username">Username: 
+      <input type="text" name="username" id="username" value="<%= params[:username] %>"
+        placeholder="<%= params[:username] %>">
+      </label>
+    </div>
+    <div>
+      <label for="password">Password: 
+      <input type="password" name="password" id="password">
+      </label>
+    </div>
+    <button class="button" type="submit">Sign In</button>
+  </form>
+</div>

@@ -1,0 +1,18 @@
+<div class="title summary">
+  <h2>Add a New Workplace</h2>
+</div>
+
+<div class="form">
+  <form action="/workplaces" method="post">
+    <div>
+      <label for="username">Name of workplace: 
+      <input type="text" name="workplace_name" id="username" 
+        value="<%= params[:workplace_name] %>">
+      </label>
+    </div>
+    <div class="links">
+      <button class="button" type="submit">Add Workplace</button>
+      <p><a href="/workplaces">Cancel</a></p>
+    </div>
+  </form>
+</div>

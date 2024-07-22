@@ -1,0 +1,16 @@
+<div class="title summary">
+  <h2>Editing "<%= @workplace[:name] %>"</h2>
+</div>
+
+<div class="form">
+  <form action="/workplaces/<%= @workplace[:id] %>" method="post">
+    <div>
+      <label for="name">New Workplace Name: 
+      <input type="text" name="workplace_name" id="name" value="<%= params[:workplace_name]%>" 
+        placeholder="<%= params[:workplace_name] || @workplace[:name] %>">
+      </label>
+    </div>
+    <button class="button" type="submit">Update Workplace</button>
+    <a href="/workplaces/<%= @workplace[:id] %>">Cancel</a>
+  </form>
+</div>

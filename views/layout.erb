@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <link href="/stylesheets/tips.css" rel="stylesheet" type="text/css">
+  <title>Tip Income Tracker</title>
+</head>
+<body>
+  <header>
+    <h2>Tip Income Tracker</h2>
+    <%== yield_content :nav_link %>
+  </header>
+
+  <% if session[:success] %>
+    <p class="message"><%= session.delete(:success) %></p>
+  <% end %> 
+
+  <% if session[:error] %>
+    <% session.delete(:error).each do |error| %>
+      <p class="message error"><%= error %></p> 
+    <% end %>
+  <% end %>
+
+  <%== yield %>
+
+</body>
+</html>

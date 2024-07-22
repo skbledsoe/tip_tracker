@@ -1,0 +1,112 @@
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Gill Sans", sans-serif;
+  margin: 40px auto;
+  max-width: 960px;
+  width: 90%;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 75%;
+}
+
+h2 {
+  margin: 0;
+  width: 40%;
+}
+
+.title.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 20px 10px 0 10px;
+  width: 75%;
+}
+
+.title.summary h2 {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  margin: 0 40px;
+  padding: 0 5px;
+}
+
+p.links, li {
+  font-style: italic;
+  padding: 10px 10px;
+}
+
+p.summary {
+  display: flex;
+  font-size: small;
+  font-weight: bold;
+  padding: 10px;
+}
+
+table {
+  border-collapse:collapse;
+  padding: 0 10px;
+  width: 750px;
+}
+
+th {
+  background-color: #524a4a2a;
+  border-bottom:2px solid #524a4a;
+  font-weight: 500;
+}
+
+td {
+  border-bottom:1px solid #524a4a4b;
+  text-align: center;
+}
+
+.signin-form {
+  padding: 0 10px;
+  width: 25%;
+}
+
+.form div {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.button {
+  margin: 10px;
+}
+
+form.delete {
+  padding: 20px 10px;
+}
+
+p.message {
+  width: 75%;
+  padding: 10px 20px;
+  margin: 20px auto 1.5em auto;
+  color: #3a8a5b;
+  background: #cbf2e2bb; 
+}
+
+p.message.error {
+  color: rgb(204, 51, 59);
+  background: #e9b0b3; 
+}
+
+.page-links {
+  text-align: center;
+}
+
+.page-links a,
+.page-links p {
+  display: inline-block;
+  margin: 40px 10px 10px 10px;
+}

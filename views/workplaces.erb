@@ -1,0 +1,52 @@
+<% content_for :nav_link do %>
+  <ul class="links">
+    <li><a href="/workplaces/add">Add Workplace</a></li>
+  </ul>
+<% end %>
+
+<div class="title summary">
+  <h2>All Workplaces</h2>
+
+  <p class="summary">Total tips: $<%= tip_total(@workplaces) %></p>
+</div>
+
+<div class="workplaces-table">
+  <table>
+    <thead>
+      <tr>
+        <th> Workplace </th>
+        <th> Tips </th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <% @workplaces.each do |tuple| %>      
+          <tr>
+            <td> <%= tuple[:name] %> </td>
+            <td> $<%= format('%.2f', tuple[:total_tips]) %> </td>
+            <td><a href="/workplaces/<%= tuple[:id] %>">View / Edit</a></td>
+          </tr>
+        <% end %> 
+    </tbody>
+  </table>
+</div>
+
+<div class="page-links">
+  <% if @page > 1 %>
+    <a href="/workplaces?page=<%= @page - 1 %>">Previous Page</a>
+  <% end %>
+
+  <p>Page <%= @page %></p>
+
+  <% if (@workplaces.first[:total_workplaces] > 10) && (@workplaces.length == 10) %>
+    <a href="/workplaces?page=<%= @page + 1 %>">Next Page</a>
+  <% end %>
+</div>
+
+<div class="links">
+  <p>Signed in as <%= session[:username] %></p>
+  <form action="/signout" method="post">
+    <button type="submit" class="button">Sign Out</button>
+  </form>
+</div> 

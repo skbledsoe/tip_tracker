@@ -1,0 +1,27 @@
+<div class="title summary">
+  <h2>Add a shift to "<%= @workplace[:name] %>":</h2>
+</div>
+
+<div class="form">
+  <form action="/workplaces/<%= @workplace[:id] %>/shifts" method="post">
+    <div>
+      <label for="date">Shift Date: 
+      <input type="date" name="date" id="date" value="<%= params[:date] %>">
+      </label>
+    </div>
+    <div>
+      <label for="type">Shift Type: 
+      <input type="text" name="type" id="type" value="<%= params[:type] %>"
+        placeholder="<%= params[:type] || "Morning, Afternoon, Night" %>">
+      </label>
+    </div>
+    <div>
+      <label for="tips">Tip Amount: 
+      <input type="number" name="tip_amount" id="tips" step="0.01"
+        placeholder="<%= params[:tip_amount] || "0.0" %>" value="<%= params[:tip_amount] %>">
+      </label>
+    </div>
+    <button class="button" type="submit">Add Shift</button>
+    <a href="/workplaces/<%= @workplace[:id] %>">Cancel</a>
+  </form>
+</div>
